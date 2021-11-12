@@ -6,10 +6,8 @@
     @if (!empty($restaurants))
         <ul>
             @foreach ($restaurants as $restaurant)
-                <li>
-                    <a href="{{ route('restaurants.show', $restaurant) }}">
-                        {{ $restaurant->name }}
-                    </a>
+                <li class="list-unstyled border mb-5 pl-3 shadow">
+                    @include('partial.restaurant')
                 </li>
             @endforeach
         </ul>
