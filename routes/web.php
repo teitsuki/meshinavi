@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [RestaurantController::class, 'index']);
+Route::get('/', [RestaurantController::class, 'index'])
+    ->name('root');
 Route::resource('restaurants', RestaurantController::class)
     ->only(['index', 'show']);

@@ -9,7 +9,7 @@ class RestaurantController extends Controller
 {
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::simplePaginate(10);
         return view('restaurants.index')
             ->with(compact('restaurants'));
     }
