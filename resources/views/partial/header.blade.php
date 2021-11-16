@@ -11,9 +11,9 @@
                 <a class="nav-link" href="{{ route('restaurants.index') }}">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="カテゴリー" aria-label="Search">
-            <input class="form-control mr-sm-2" type="search" placeholder="お店の名前" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method="GET" action="{{ route('restaurants.index') }}">
+            <input class="form-control mr-sm-2" type="search" placeholder="カテゴリー" name="category" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="お店の名前" name="name" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
