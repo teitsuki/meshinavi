@@ -84,7 +84,7 @@ class RestaurantController extends AdminController
         $form->text('address', __('Address'));
         $form->text('opentime', __('Opentime'));
         $form->text('holiday', __('Holiday'));
-        $form->number('category_id', __('Category'))
+        $form->select('category_id', __('Category'))
             ->options(
                 \App\Models\Category::all()
                     ->pluck('name', 'id')
