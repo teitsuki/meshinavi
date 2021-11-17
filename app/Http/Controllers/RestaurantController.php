@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -24,5 +25,22 @@ class RestaurantController extends Controller
     {
         return view('restaurants.show')
             ->with(compact('restaurant'));
+    }
+
+    public function create()
+    {
+        $categories = Category::all();
+        return view('restaurants.create', compact('categories'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'opentime' => 'required',
+        ]);
+        
+        return view('restaurants.create', compact('categories'));
     }
 }
