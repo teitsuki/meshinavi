@@ -10,13 +10,20 @@ class Restaurant extends Model
 {
     use HasFactory;
 
-    public function scopeSearch(Builder $query) {
+    public function scopeSearch(Builder $query, $params) {
         if (!empty($params['name'])) {
             $query->where('name', 'like', '%' . $params['name'] . '%');
         }
         if (!empty($params['category'])) {
-            $query->where('category', 'like', '%' . $params['category'] . '%');
+            $query->whereHas('Category', function($q) use ($params){
+                $q->where('name', 'like', '%' . $params['category'] . '%');
+            });
         }
         return $query;
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(\App\Models\Category::class);
     }
 }

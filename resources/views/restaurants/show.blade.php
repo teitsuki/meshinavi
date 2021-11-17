@@ -7,25 +7,29 @@
     <table class="table-bordered mb-5 mt-3">
         <colgroup span="1" style="width:200px;background-color:#efefef;"></colgroup>
         <tbody>
-            <th>店名</th>
+            <th>{{ __('Name') }}</th>
             <td>
                 <p>{{ $restaurant->name }}</p>
                 <p>{{ $restaurant->name_kana }}</p>
             </td>
             <tr>
-                <th>住所</th>
+                <th>{{ __('Address') }}</th>
                 <th>{{ $restaurant->address }}</th>
             </tr>
             <tr>
-                <th>営業時間</th>
+                <th>{{ __('Category') }}</th>
+                <th>{{ $restaurant->category->name }}</th>
+            </tr>
+            <tr>
+                <th>{{ __('Opentime') }}</th>
                 <th>{{ $restaurant->opentime }}</th>
             </tr>
             <tr>
-                <th>定休日</th>
+                <th>{{ __('Holiday') }}</th>
                 <th>{{ $restaurant->holiday }}</th>
             </tr>
             <tr>
-                <th>その他</th>
+                <th>{{ __('Note') }}</th>
                 <th>{{ $restaurant->note }}</th>
             </tr>
         </tbody>
