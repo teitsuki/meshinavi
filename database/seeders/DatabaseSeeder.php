@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(RestaurantSeeder::class);
         \App\Models\Restaurant::factory(20)->create();
         // $this->call(AdminTablesSeeder::class);
+        $this->call(MenuSeeder::class);
     }
 }
