@@ -14,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', [RestaurantController::class, 'index'])
     ->name('root');
 Route::resource('restaurants', RestaurantController::class)
     ->only(['index', 'show']);
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
